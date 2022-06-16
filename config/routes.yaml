@@ -5,3 +5,12 @@ controllers:
 kernel:
     resource: ../src/Kernel.php
     type: annotation
+
+homepage:
+    path: /
+    controller: App\Controller\HomeController::getPage
+
+
+houses:
+    path: /antwerp/houses
+    controller: App\Controller\HouseController::getPage
