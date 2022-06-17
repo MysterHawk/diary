@@ -8,10 +8,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HouseController extends AbstractController
 {
-    public function getPage(): Response
     #[Route('/house/{id}', name: 'app_house')]
+    public function getHouse(): Response
     {
-        return $this->render('house.html');
+        return $this->render('house/get.html');
+    }
+
     #[Route('/house/create', name: 'app_house')]
+    public function createHouse(): Response
+    {
+        return $this->render('house/create.html');
     }
 }

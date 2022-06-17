@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <title>Create House</title>
+</head>
+
+<body>
+    <h1>Create a house</h1>
+
+    <form method="POST" id="formCreateHouse">
+
+        <fieldset>
+            <legend>Basic information</legend>
+
+            <label for="house_name">House's name:</label>
+            <input type="text" name="house_name" id="house_name" required>
+
+            <label for="url">Link:</label>
+            <input type="url" pattern="https://.*" name="url" id="url">
+
+            <label for="notes">Notes:</label>
+            <textarea name="notes" id="notes"></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Location</legend>
+
+            <input type="hidden" name="id_location">
+
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="address" required>
+
+            <label for="address_number">Address number:</label>
+            <input type="number" name="address_number" id="address_number">
+
+            <label for="zip_code">Zip code:</label>
+            <input type="number" name="zip_code" id="zip_code">
+        </fieldset>
+
+        <fieldset>
+            <legend>Price</legend>
+
+            <label for="monthly_price">Monthly price:</label>
+            <input type="number" name="monthly_price" id="monthly_price" class="cost" required>
+
+            <label for="extra_costs">Extra costs (water/gas/electricity/internet):</label>
+            <input type="number" name="extra_costs" id="extra_costs" value="0" class="cost" required>
+
+            <label for="guarantee_yearly">Guarantee yearly:</label>
+            <input type="number" name="guarantee_yearly" id="guarantee_yearly" class="cost" required>
+
+            <label for="annual_price">Annual price:</label>
+            <input type="number" name="annual_price" id="annual_price" readonly>
+        </fieldset>
+
+        <fieldset>
+            <legend>Contact</legend>
+
+            <input type="hidden" name="id_contact">
+
+            <label for="surname">Surname:</label>
+            <input type="text" name="surname" id="surname" class="searchContact" required>
+
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" name="phone" id="phone" class="searchContact" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" class="searchContact" required>
+        </fieldset>
+
+        <input type="submit" value="Create house" id="send_form">
+
+    </form>
+
+    <br>
+
+
+    <script>
+        window.onload = function() {
+
+            // I intercept the form submit to call the api to create house/location/address
+            let form = document.getElementById("formCreateHouse");
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                let formData = new FormData(form);
+
+                // Display the key/value pairs
+                for (var pair of formData.entries()) {
+                    console.log(pair[0] + ', ' + pair[1]);
+                }
+            })
+
+            // I get all the input that have cost in them
+            let costs = document.querySelectorAll(".cost");
+            let inputAnnualCost = document.getElementById("annual_price");
+
+            // and I calculate the annual cost
+            costs.forEach(function(cost) {
+                cost.addEventListener("change", function() {
+                    let inputMonthlyPrice = document.getElementById("monthly_price");
+                    let inputExtraCosts = document.getElementById("extra_costs");
+                    let inputGuaranteeYearly = document.getElementById("guarantee_yearly");
+
+                    inputAnnualCost.value = getAnnualCost(parseInt(inputMonthlyPrice.value), parseInt(inputExtraCosts.value), parseInt(inputGuaranteeYearly.value));
+                })
+            })
+
+            // I get all the input that can search on the db for the contact information
+            let inputSearchContacts = document.querySelectorAll(".searchContact");
+
+            // and If I found results I autofill contact input
+            inputSearchContacts.forEach(function(input) {
+                input.addEventListener("blur", function() {
+                    searchContact(input.id, input.value);
+                })
+            })
+        }
+
+        // this function is needed to calculate the annual cost
+        function getAnnualCost(monthly_price, extra_costs, guarantee_yearly) {
+            return (monthly_price + extra_costs) * 12 + guarantee_yearly;
+        }
+
+        // this function is needed to search the contact information and autofill parts of the form
+        function searchContact(type, value) {
+            // the input have the same name of the value types so I can use them directly to generate the url to call the api
+            fetch('/api/contacts?' + type + '=' + value, {
+                    headers: {
+                        accept: 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+
+                    // console.log(data);
+
+                    if (data.length > 1)
+                        return console.log("⚠️ Error, I've found more than 1 contact!");
+
+                    if (data[0]) {
+                        document.getElementById("name").value = data[0].name;
+                        document.getElementById("surname").value = data[0].surname;
+                        document.getElementById("email").value = data[0].email;
+                        document.getElementById("phone").value = data[0].phone;
+                        console.log("✅ Contact found!")
+                    } else
+                        console.log("ℹ️ Contact not found!")
+                });
+        }
+    </script>
+
+</body>
+
+</html>
