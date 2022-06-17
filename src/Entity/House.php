@@ -5,30 +5,8 @@ namespace App\Entity;
 use App\Repository\HouseRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Controller\getListing;
 
-/**
- * @ApiResource(itemOperations={
- * "get_listing"={
- *       "method" = "GET",
- *       "path" = "/houses/listings/{limiter}",
- *       "controller" = getListing::class,
- *       "read"=false,
- *          "openapi_context" = {
- *         "parameters" = {
- *           {
- *             "name" = "limiter",
- *             "in" = "path",
- *             "description" = "limit of elements in the results of the query",
- *             "type" = "int",
- *             "required" = false,
- *             "example"= "100",
- *           },
- *         },
- * }, 
- *  }
- * })
- */
+#[ApiResource]
 
 
 #[ORM\Entity(repositoryClass: HouseRepository::class)]
