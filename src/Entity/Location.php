@@ -3,11 +3,14 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
 use App\Repository\LocationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 #[ORM\Entity(repositoryClass: LocationRepository::class)]
 #[ApiResource]
+#[ApiFilter(SearchFilter::class, properties: ['id' => 'exact', 'address' => 'partial', 'zip_code' => 'partial'])]
 class Location
 {
     #[ORM\Id]

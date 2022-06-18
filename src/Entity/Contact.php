@@ -65,7 +65,7 @@ class Contact
         return $this->phone;
     }
 
-    public function setCellNumber(?int $phone): self
+    public function setPhone(?int $phone): self
     {
         $this->phone = $phone;
 

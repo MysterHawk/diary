@@ -17,6 +17,6 @@ class HouseController extends AbstractController
     #[Route('/house/create', name: 'app_house')]
     public function createHouse(): Response
     {
-        return $this->render('house/create.html');
+        return $this->render('house/create.html.twig');
     }
 }

@@ -24,13 +24,22 @@ class House
     private $url;
 
     #[ORM\Column(type: 'smallint', nullable: true)]
-    private $stars;
+    private $rating;
 
     #[ORM\Column(type: 'integer')]
-    private $price;
+    private $monthly_cost;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private $extra_costs;
+
+    #[ORM\Column(type: 'integer')]
+    private $guarantee;
+
+    #[ORM\Column(type: 'integer')]
+    private $annual_cost;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $note;
 
     #[ORM\Column(type: 'integer')]
     private $fk_contact;
@@ -67,26 +76,26 @@ class House
         return $this;
     }
 
-    public function getStars(): ?int
+    public function getRating(): ?int
     {
-        return $this->stars;
+        return $this->rating;
     }
 
-    public function setStars(?int $stars): self
+    public function setRating(?int $rating): self
     {
-        $this->stars = $stars;
+        $this->rating = $rating;
 
         return $this;
     }
 
-    public function getPrice(): ?int
+    public function getMonthlyCost(): ?int
     {
-        return $this->price;
+        return $this->monthly_cost;
     }
 
-    public function setPrice(int $price): self
+    public function setMonthlyCost(int $monthly_cost): self
     {
-        $this->price = $price;
+        $this->monthly_cost = $monthly_cost;
 
         return $this;
     }
@@ -123,6 +132,42 @@ class House
     public function setFkLocation(int $fk_location): self
     {
         $this->fk_location = $fk_location;
+
+        return $this;
+    }
+
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    public function setNote(?string $note): self
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    public function getGuarantee(): ?int
+    {
+        return $this->guarantee;
+    }
+
+    public function setGuarantee(int $guarantee): self
+    {
+        $this->guarantee = $guarantee;
+
+        return $this;
+    }
+
+    public function getAnnualCost(): ?int
+    {
+        return $this->annual_cost;
+    }
+
+    public function setAnnualCost(int $annual_cost): self
+    {
+        $this->annual_cost = $annual_cost;
 
         return $this;
     }

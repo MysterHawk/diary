@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Page dedicated to create house entities">
+		<title>Create House</title>
+		{% block stylesheets %}
+			{# 'app' must match the first argument to addEntry() in webpack.config.js #}
+			{{ encore_entry_link_tags('water') }}
+		{% endblock %}
+	</head>
+	<body>
+		<header>
+			<h1>🏠 Create a house</h1>
+		</header>
+
+		<main>
+			<form method="POST" id="formCreateHouse">
+
+				<fieldset>
+					<legend>Basic information</legend>
+
+					<label for="house_name">House's name:</label>
+					<input type="text" name="house_name" id="house_name" required>
+
+					<label for="url">Link:</label>
+					<input type="url" pattern="https://.*" name="url" id="url">
+
+					<label for="rating">Rating</label>
+					<input type="range" min="1" max="5" step="1" value="1" name="rating" id="rating">
+
+
+					<label for="notes">Note:</label>
+					<textarea name="note" id="note"></textarea>
+				</fieldset>
+
+				<fieldset>
+					<legend>Location</legend>
+
+					<input type="hidden" name="id_location" id="id_location">
+
+					<label for="address">Address:</label>
+					<input type="text" name="address" id="address" class="createLocation" required>
+
+					<label for="address_number">Address number:</label>
+					<input type="number" name="address_number" class="createLocation" id="address_number">
+
+					<label for="zip_code">Zip code:</label>
+					<input type="number" name="zip_code" id="zip_code" class="createLocation">
+				</fieldset>
+
+				<fieldset>
+					<legend>Price</legend>
+
+					<label for="monthly_cost">Monthly price:</label>
+					<input type="number" name="monthly_cost" id="monthly_cost" class="cost" required>
+
+					<label for="extra_costs">Extra costs (water/gas/electricity/internet):</label>
+					<input type="number" name="extra_costs" id="extra_costs" value="0" class="cost" required>
+
+					<label for="guarantee_yearly">Guarantee yearly:</label>
+					<input type="number" name="guarantee" id="guarantee" class="cost" required>
+
+					<label for="annual_cost">Annual price:</label>
+					<input type="number" name="annual_cost" id="annual_cost" readonly>
+				</fieldset>
+
+				<fieldset>
+					<legend>Contact</legend>
+
+					<input type="hidden" name="id_contact" id="id_contact">
+
+					<label for="surname">Surname:</label>
+					<input type="text" name="surname" id="surname" class="searchContact createContact" required>
+
+					<label for="name">Name:</label>
+					<input type="text" name="name" id="name" class="createContact" required>
+
+					<label for="phone">Phone:</label>
+					<input type="tel" name="phone" id="phone" class="searchContact createContact" required>
+
+					<label for="email">Email:</label>
+					<input type="email" name="email" id="email" class="searchContact createContact" required>
+				</fieldset>
+
+				<input type="submit" value="Create house" id="send_form">
+
+			</form>
+		</main>
+
+		<br>
+
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('createHouse') }}
+		{% endblock %}
+	</body>
+</html>
