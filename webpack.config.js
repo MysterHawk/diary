@@ -21,8 +21,10 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
-    .addEntry('createHouse', './assets/javascript/createHouse.js')
+    .addEntry('getHouses', './assets/javascript/getHouses.js')
     .addEntry('water', './assets/styles/water.css')
+    .addEntry('themeGrid', './assets/styles/mermaid.min.css')
+    .addEntry('createHouse', './assets/javascript/createHouse.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
@@ -72,6 +74,6 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
-;
+    ;
 
 module.exports = Encore.getWebpackConfig();
