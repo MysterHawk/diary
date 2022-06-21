@@ -31,6 +31,11 @@ fetch('/api/houses', {
                 formatter: (cell) => { return html(`<a href='/contact/${cell}' target=”_blank” rel=”noopener noreferrer”>${cell}</a>`) }
             },
             {
+                id: 'size',
+                name: 'Room size',
+                formatter: (cell) => { return html(`${cell}m²`) }
+            },
+            {
                 id: 'rating',
                 name: 'Rating'
             },

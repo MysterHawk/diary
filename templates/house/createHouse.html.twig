@@ -26,12 +26,15 @@
 					<label for="house_name">House's name:</label>
 					<input type="text" name="house_name" id="house_name" required>
 
+					<label for="size">Size(m²):</label>
+					<input type="number" min="1" name="size" id="size">
+
+
 					<label for="url">Link:</label>
 					<input type="url" pattern="https://.*" name="url" id="url">
 
 					<label for="rating">Rating</label>
 					<input type="range" min="1" max="5" step="1" value="1" name="rating" id="rating">
-
 
 					<label for="note">Note:</label>
 					<textarea name="note" id="note"></textarea>
@@ -80,10 +83,10 @@
 					<input type="text" name="name" id="name" class="createContact" required>
 
 					<label for="phone">Phone:</label>
-					<input type="tel" name="phone" id="phone" class="searchContact createContact" required>
+					<input type="tel" name="phone" id="phone" class="searchContact createContact">
 
 					<label for="email">Email:</label>
-					<input type="email" name="email" id="email" class="searchContact createContact" required>
+					<input type="email" name="email" id="email" class="searchContact createContact">
 				</fieldset>
 
 				<input type="submit" value="Create house" id="send_form">

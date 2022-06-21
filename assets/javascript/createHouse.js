@@ -94,6 +94,7 @@ function createHouse(formData) {
     object.rating = parseInt(formData.get('rating'), 10);
     object.fkContact = parseInt(formData.get('id_contact'), 10);
     object.fkLocation = parseInt(formData.get('id_location'), 10);
+    object.size = parseInt(formData.get('size'), 10);
 
     const json = JSON.stringify(object);
 

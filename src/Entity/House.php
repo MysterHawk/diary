@@ -47,6 +47,9 @@ class House
     #[ORM\Column(type: 'integer')]
     private $fk_location;
 
+    #[ORM\Column(type: 'integer')]
+    private $size;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -168,6 +171,18 @@ class House
     public function setAnnualCost(int $annual_cost): self
     {
         $this->annual_cost = $annual_cost;
+
+        return $this;
+    }
+
+    public function getSize(): ?int
+    {
+        return $this->size;
+    }
+
+    public function setSize(int $size): self
+    {
+        $this->size = $size;
 
         return $this;
     }
