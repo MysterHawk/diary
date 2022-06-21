@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Home page diary">
+		<title>Home page</title>
+		{% block stylesheets %}
+			{# 'app' must match the first argument to addEntry() in webpack.config.js #}
+			{{ encore_entry_link_tags('water') }}
+		{% endblock %}
+	</head>
+
+	<body>
+		<h1>Diario personale</h1>
+		<ul>
+			<li>
+				<a href="/listing/antwerp/houses">Case ad Anversa</a>
+			</li>
+		</ul>
+		<br>
+	</body>
+
+</html>
