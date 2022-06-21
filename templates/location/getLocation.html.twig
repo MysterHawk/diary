@@ -4,9 +4,13 @@
 	Page location
 {% endblock %}
 
+{% block description %}
+	Page that contains location information
+{% endblock %}
+
 {% block header %}
 
-	<h1>📢 Location</h1>
+	📢 Location
 
 {% endblock %}
 
@@ -23,6 +27,6 @@
 			{{location.zipCode}}
 		</li>
 	</ul>
-
-	<br>
 {% endblock %}
+
+{% block footer %}{% endblock %}
