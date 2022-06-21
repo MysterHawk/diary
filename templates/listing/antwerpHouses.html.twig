@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="it">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Home page diary">
+		<title>Houses in Anversa</title>
+		{% block stylesheets %}
+			{# 'app' must match the first argument to addEntry() in webpack.config.js #}
+			{{ encore_entry_link_tags('water') }}
+			{{ encore_entry_link_tags('themeGrid') }}
+		{% endblock %}
+
+	</head>
+
+	<body class="width1600">
+		<h1>🏘️ Case ad Anversa</h1>
+		<div id="wrapper"></div>
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('getHouses') }}
+		{% endblock %}
+
+	</body>
+
+</html>
