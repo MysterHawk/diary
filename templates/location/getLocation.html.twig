@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Page location
+{% endblock %}
+
+{% block header %}
+
+	<h1>📢 Location</h1>
+
+{% endblock %}
+
+
+{% block main %}
+
+	<ul>
+		<li>
+			<b>Address:</b>
+			{{location.address}}
+			{{location.addressNumber}}</li>
+		<li>
+			<b>zip code</b>:
+			{{location.zipCode}}
+		</li>
+	</ul>
+
+	<br>
+{% endblock %}

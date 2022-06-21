@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Contact page
+{% endblock %}
+
+{% block header %}
+
+	<h1>🗣️ Contact</h1>
+
+{% endblock %}
+
+
+{% block main %}
+
+	<ul>
+		<li>
+			<b>Name:</b>
+			{{contact.name}}
+			{{contact.surname}}
+		</li>
+		<li>
+			<b>Email</b>:
+			{{contact.email}}
+		</li>
+		<li>
+			<b>Phone</b>:
+			{{contact.phone}}
+		</li>
+
+	</ul>
+	<br>
+{% endblock %}
