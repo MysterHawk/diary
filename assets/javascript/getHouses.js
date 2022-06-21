@@ -23,7 +23,9 @@ fetch('/api/houses', {
             }, {
                 id: 'fk_location',
                 name: 'Address',
-                formatter: (cell) => { return html(`<a href='/location/${cell}' target=”_blank” rel=”noopener noreferrer”>${cell}</a>`) }
+                formatter: (cell) => {
+                    return html(`<a href='/location/${cell}' target=”_blank” rel=”noopener noreferrer”>${cell}</a>`)
+                }
             },
             {
                 id: 'fk_contact',
@@ -41,16 +43,20 @@ fetch('/api/houses', {
             },
             {
                 id: 'monthly_cost',
-                name: 'Monthly cost'
+                name: 'Monthly cost',
+                formatter: (cell) => { return html(`${cell}€`) }
             }, {
                 id: 'extra_costs',
-                name: 'Extra costs'
+                name: 'Extra costs',
+                formatter: (cell) => { return html(`${cell}€`) }
             }, {
                 id: 'guarantee',
-                name: 'Guarantee'
+                name: 'Guarantee',
+                formatter: (cell) => { return html(`${cell}€`) }
             }, {
                 id: 'annualCost',
-                name: 'Annual cost'
+                name: 'Annual cost',
+                formatter: (cell) => { return html(`${cell}€`) }
             }, {
                 id: 'url',
                 name: 'Url',
