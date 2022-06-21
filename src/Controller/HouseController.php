@@ -11,12 +11,12 @@ class HouseController extends AbstractController
     #[Route('/house/{id}', name: 'app_house')]
     public function getHouse(): Response
     {
-        return $this->render('house/get.html');
+        return $this->render('house/getHouse.html.twig');
     }
 
     #[Route('/house/create', name: 'app_house')]
     public function createHouse(): Response
     {
-        return $this->render('house/create.html.twig');
+        return $this->render('house/createHouse.html.twig');
     }
 }
