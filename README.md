@@ -42,9 +42,17 @@ This project is written in PHP 8.1, the following PHP extensions are required:
 ```bash
   git clone [repo] diary
   cd diary
+  # install php libraries
   composer install
+  # Create the db
   php bin/console doctrine:database:create
+  # Create a .sql to fill the db
+  php bin/console make:migration
+  # Execute the .sql to fill the db
+  php bin/console doctrine:migrations:migrate
+  # Install nodejs libraries
   yarn install
+  # and build the front-end
   yarn build (or `yarn watch` during development)
 ```
     
