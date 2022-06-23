@@ -24,7 +24,7 @@ class Location
     #[ORM\Column(type: 'integer')]
     private $address_number;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'string', length: 32)]
     private $zip_code;
 
     public function getId(): ?int
@@ -61,7 +61,7 @@ class Location
         return $this->zip_code;
     }
 
-    public function setZipCode(int $zip_code): self
+    public function setZipCode(string $zip_code): self
     {
         $this->zip_code = $zip_code;
 

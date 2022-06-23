@@ -25,10 +25,10 @@ class Contact
     #[ORM\Column(type: 'string', length: 128)]
     private $surname;
 
-    #[ORM\Column(type: 'integer', nullable: true)]
+    #[ORM\Column(type: 'string', length: 32, nullable: true)]
     private $phone;
 
-    #[ORM\Column(type: 'string', length: 320)]
+    #[ORM\Column(type: 'string', nullable: true, length: 320)]
     private $email;
 
     public function getId(): ?int
@@ -60,12 +60,12 @@ class Contact
         return $this;
     }
 
-    public function getPhone(): ?int
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(?int $phone): self
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
 
