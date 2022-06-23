@@ -10,10 +10,15 @@ It still in WIP but with the time I will add the functionality needed.
 
 ## Tech Stack
 
-**Client:** React, Redux, TailwindCSS
+**Client:** water.css, gridjs
 
-**Server:** Node, Express
+**Server:** PHP, Symfony 6, API Platform
 
+This project is written in PHP 8.1, the following PHP extensions are required:
+
+- pdo_sqlite
+- sqlite3
+- sodium
 
 ## Screenshots
 
@@ -28,22 +33,21 @@ It still in WIP but with the time I will add the functionality needed.
 - Cross platform
 
 
-## Environment Variables
+## Environment Variables available
 
-To run this project, you will need to add the following environment variables to your .env file
-
-`API_KEY`
-
-`ANOTHER_API_KEY`
+`DATABASE_URL` change it to use a different connection
 
 
 ## Installation
 
-Install my-project with npm
 
 ```bash
-  npm install my-project
-  cd my-project
+  git clone [repo] diary
+  cd diary
+  composer install
+  php bin/console doctrine:database:create
+  yarn install
+  yarn build (or `yarn watch` during development)
 ```
     
 ## Contributing
