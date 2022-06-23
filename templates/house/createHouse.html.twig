@@ -1,104 +1,109 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	Create House
+Create House
 
 {% endblock %}
 
 {% block description %}
-	Page dedicated to create house entities
+Page dedicated to create house entities
 
 {% endblock %}
 
 {% block header %}
 
-	🏠 Create a house
+<a href='/'>📖 Home</a>
+/ 🏠 Create a house
 
 
 {% endblock %}
 
 {% block main %}
-	<form method="POST" id="formCreateHouse">
+<form method="POST" id="formCreateHouse">
 
-		<fieldset>
-			<legend>Basic information</legend>
+	<fieldset>
+		<legend>Basic information</legend>
 
-			<label for="house_name">House's name:</label>
-			<input type="text" name="house_name" id="house_name" required>
+		<label for="house_name">House's name:</label>
+		<input type="text" name="house_name" id="house_name" required>
 
-			<label for="size">Size(m²):</label>
-			<input type="number" min="1" name="size" id="size">
+		<label for="size">Size(m²):</label>
+		<input type="number" min="1" name="size" id="size">
 
 
-			<label for="url">Link:</label>
-			<input type="url" pattern="https://.*" name="url" id="url">
+		<label for="url">Link:</label>
+		<input type="url" pattern="https://.*" name="url" id="url">
 
-			<label for="rating">Rating</label>
-			<input type="range" min="1" max="5" step="1" value="1" name="rating" id="rating">
+		<label for="rating">Rating</label>
+		<input type="range" min="1" max="5" step="1" value="1" name="rating" id="rating">
 
-			<label for="note">Note:</label>
-			<textarea name="note" id="note"></textarea>
-		</fieldset>
+		<label for="note">Note:</label>
+		<textarea name="note" id="note"></textarea>
+	</fieldset>
 
-		<fieldset>
-			<legend>Location</legend>
+	<fieldset>
+		<legend>Location</legend>
 
-			<input type="hidden" name="id_location" id="id_location">
+		<input type="hidden" name="id_location" id="id_location">
 
-			<label for="address">Address:</label>
-			<input type="text" name="address" id="address" required>
+		<label for="address">Address:</label>
+		<input type="text" name="address" id="address" required>
 
-			<label for="address_number">Address number:</label>
-			<input type="number" name="address_number" id="address_number" required>
+		<label for="address_number">Address number:</label>
+		<input type="number" name="address_number" id="address_number" required>
 
-			<label for="zip_code">Zip code:</label>
-			<input type="number" name="zip_code" id="zip_code" required>
-		</fieldset>
+		<label for="zip_code">Zip code:</label>
+		<input type="number" name="zip_code" id="zip_code" required>
+	</fieldset>
 
-		<fieldset>
-			<legend>Price</legend>
+	<fieldset>
+		<legend>Price</legend>
 
-			<label for="monthly_cost">Monthly price:</label>
-			<input type="number" name="monthly_cost" id="monthly_cost" class="cost" required>
+		<label for="monthly_cost">Monthly price:</label>
+		<input type="number" name="monthly_cost" id="monthly_cost" class="cost" required>
 
-			<label for="extra_costs">Extra costs (water/gas/electricity/internet):</label>
-			<input type="number" name="extra_costs" id="extra_costs" value="0" class="cost" required>
+		<label for="extra_costs">Extra costs (water/gas/electricity/internet):</label>
+		<input type="number" name="extra_costs" id="extra_costs" value="0" class="cost" required>
 
-			<label for="guarantee">Guarantee yearly:</label>
-			<input type="number" name="guarantee" id="guarantee" class="cost" required>
+		<label for="guarantee">Guarantee yearly:</label>
+		<input type="number" name="guarantee" id="guarantee" class="cost" required>
 
-			<label for="annual_cost">Annual price:</label>
-			<input type="number" name="annual_cost" id="annual_cost" readonly>
-		</fieldset>
+		<label for="annual_cost">Annual price:</label>
+		<input type="number" name="annual_cost" id="annual_cost" readonly>
+	</fieldset>
 
-		<fieldset>
-			<legend>Contact</legend>
+	<fieldset>
+		<legend>Contact</legend>
 
-			<input type="hidden" name="id_contact" id="id_contact">
+		<input type="hidden" name="id_contact" id="id_contact">
 
-			<label for="surname">Surname:</label>
-			<input type="text" name="surname" id="surname" class="searchContact" required>
+		<label for="surname">Surname:</label>
+		<input type="text" name="surname" id="surname" class="searchContact" required>
 
-			<label for="name">Name:</label>
-			<input type="text" name="name" id="name" required>
+		<label for="name">Name:</label>
+		<input type="text" name="name" id="name" required>
 
-			<label for="phone">Phone:</label>
-			<input type="tel" name="phone" id="phone" class="searchContact">
+		<label for="phone">Phone:</label>
+		<input type="tel" name="phone" id="phone" class="searchContact">
 
-			<label for="email">Email:</label>
-			<input type="email" name="email" id="email" class="searchContact">
-		</fieldset>
+		<label for="email">Email:</label>
+		<input type="email" name="email" id="email" class="searchContact">
+	</fieldset>
 
-		<input type="submit" value="Create house" id="send_form">
+	<input type="submit" value="🛏️ Create house" id="send_form">
 
-	</form>
+
+</form>
 
 {% endblock %}
 
 {% block footer %}
 
-	{% block javascripts %}
-		{{ encore_entry_script_tags('createHouse') }}
-	{% endblock %}
+{% block javascripts %}
+{{ encore_entry_script_tags('createHouse') }}
+{% endblock %}
+
+<button onclick="history.back()">👈 Go back</button>
+
 
 {% endblock %}

@@ -1,34 +1,40 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	Houses in Antwerp
+Houses in Antwerp
 {% endblock %}
 
 {% block description %}
-	Page dedicated to see the list of houses available in antwerp
+Page dedicated to see the list of houses available in antwerp
 
 {% endblock %}
 
 {% block bodyClasses %}
-	width1600
+width1600
 {% endblock %}
 
 {% block header %}
 
-	🏘️ Houses in Antwerp
+<a href='/'>📖 Home</a>
+/ 🏘️ Houses in Antwerp
 
 
 {% endblock %}
 
 {% block main %}
-	<div id="wrapper"></div>
+<button>
+	<a href='/house/create'>🛋️ Add a house</a>
+</button>
+
+
+<div id="wrapper"></div>
 
 {% endblock %}
 
 {% block footer %}
 
-	{% block javascripts %}
-		{{ encore_entry_script_tags('getHouses') }}
-	{% endblock %}
+{% block javascripts %}
+{{ encore_entry_script_tags('getHouses') }}
+{% endblock %}
 
 {% endblock %}

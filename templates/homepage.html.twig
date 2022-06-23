@@ -1,26 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html.twig' %}
 
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Home page diary">
-		<title>Home page</title>
-		{% block stylesheets %}
-			{# 'app' must match the first argument to addEntry() in webpack.config.js #}
-			{{ encore_entry_link_tags('water') }}
-		{% endblock %}
-	</head>
+{% block title %}
+Home page
+{% endblock %}
 
-	<body>
-		<h1>Diario personale</h1>
-		<ul>
-			<li>
-				<a href="/listing/antwerp/houses">Case ad Anversa</a>
-			</li>
-		</ul>
-		<br>
-	</body>
+{% block description %}
+Homepage
 
-</html>
+{% endblock %}
+
+{% block bodyClasses %}{% endblock %}
+
+{% block header %}
+
+📖 Home Diary
+
+
+{% endblock %}
+
+{% block main %}
+<figure>
+	<h2>Main pages</h2>
+
+	<ul>
+		<li>
+			<a href="/listing/antwerp/houses">🏘️ Houses in antwerp</a>
+		</li>
+		<li>
+			<a>🏐 Things to do</a>
+
+		</li>
+		<li>
+			<a>📸 Photos</a>
+		</li>
+	</ul>
+
+
+	<h3>Quote of the moment</h3>
+	<blockquote></blockquote>
+	<figcaption>
+		<cite></cite>
+	</figcaption>
+</figure>
+
+{% endblock %}
+{% block footer %}
+
+{% block javascripts %}
+{{ encore_entry_script_tags('homepage') }}
+{% endblock %}
+{% endblock %}
