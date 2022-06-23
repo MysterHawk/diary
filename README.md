@@ -1,7 +1,3 @@
-
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
-
-
 # Diary
 
 This project is a digital diary that I'm building to organize my life.
@@ -22,15 +18,17 @@ This project is written in PHP 8.1, the following PHP extensions are required:
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Homepage](https://raw.githubusercontent.com/MysterHawk/diary/main/docs/img/home_page.png)
+
+![Houses in Antwerp](https://raw.githubusercontent.com/MysterHawk/diary/main/docs/img/houses_in_antwerp.png)
+
+![Create house](https://raw.githubusercontent.com/MysterHawk/diary/main/docs/img/create_house.png)
 
 
 ## Features
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
+- A personal digital diary to take notes of things
+- Dark/Light theme
 
 
 ## Environment Variables available
