@@ -1,6 +1,6 @@
 import { Grid, html } from 'gridjs';
 
-fetch('/api/houses', {
+fetch('/api/houses/listings/300', {
   headers: {
     accept: 'application/json',
   },
@@ -12,7 +12,10 @@ fetch('/api/houses', {
     new Grid({
       sort: true,
       search: true,
-      pagination: true,
+      pagination: {
+        enabled: true,
+        limit: 50,
+      },
       columns: [{
         id: 'id',
         name: 'ID',
@@ -20,15 +23,26 @@ fetch('/api/houses', {
       }, {
         id: 'name',
         name: 'Name',
-      }, {
+      },
+      {
         id: 'fk_location',
+        name: 'fk_location',
+        hidden: true,
+      },
+      {
+        id: 'address',
         name: 'Address',
-        formatter: (cell) => html(`<a href='/location/${cell}' target=”_blank” rel=”noopener noreferrer”>${cell}</a>`),
+        formatter: (cell, row) => html(`<a href='/location/${row.cells[2].data}' target=”_blank” rel=”noopener noreferrer”>${cell}</a>`),
       },
       {
         id: 'fk_contact',
+        name: 'fk_contact',
+        hidden: true,
+      },
+      {
+        id: 'contact',
         name: 'Contact',
-        formatter: (cell) => html(`<a href='/contact/${cell}' target=”_blank” rel=”noopener noreferrer”>${cell}</a>`),
+        formatter: (cell, row) => html(`<a href='/contact/${row.cells[4].data}' target=”_blank” rel=”noopener noreferrer”>${cell}</a>`),
       },
       {
         id: 'size',
@@ -52,7 +66,7 @@ fetch('/api/houses', {
         name: 'Guarantee',
         formatter: (cell) => html(`${cell}€`),
       }, {
-        id: 'annualCost',
+        id: 'annual_cost',
         name: 'Annual cost',
         formatter: (cell) => html(`${cell}€`),
       }, {
